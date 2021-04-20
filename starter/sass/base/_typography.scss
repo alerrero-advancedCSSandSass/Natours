@@ -9,8 +9,8 @@ body {
 .heading-primary {
     color: $color-white;
     text-transform: uppercase;
-    margin-bottom: 6rem;
 
+    margin-bottom: 6rem;    
     backface-visibility: hidden;
 
     &--main {
@@ -22,6 +22,11 @@ body {
         animation-name: moveInLeft;
         animation-duration: 3s;
         animation-timing-function: ease-out;
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
     
         /*
         animation-delay: 1s;
@@ -36,6 +41,10 @@ body {
         letter-spacing: 1.75rem;
     
         animation: moveInRight 3s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -49,6 +58,14 @@ body {
     color: transparent;
     letter-spacing: 0.2rem;
     transition: all 2s;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: rotateX(180deg);
