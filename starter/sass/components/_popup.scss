@@ -9,6 +9,12 @@
     opacity: 0;
     visibility: hidden;
     transition: all .5s;
+    backdrop-filter: blur(10px);
+
+    @supports (backdrop-filter: blur(10px)) {    //We ask the browser if it supports the backdrop-filter, and if it does it applies the code below.
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .3);
+    }
 
     &__content {
         @include absCenter; //We have created a mixin for the absolute center. Should replace every place we've used this
@@ -27,6 +33,12 @@
     &__left {
         width: 33.333333%;
         display:  table-cell;   //Making both sides have the same height
+
+        @include respond(tab-port) {
+            width: 100%;
+            height: 25rem;
+            display: block;
+        }
     }
 
     &__right {
@@ -34,11 +46,23 @@
         display:  table-cell;
         vertical-align: middle; //Property of table-cell
         padding: 3rem 5rem;
+
+        @include respond(tab-port) {
+            width: 100%;
+            display: block;
+        }
     }
 
     &__img {
         display: block;
         width: 100%;
+
+        @include respond(tab-port) {
+            width: 50%;
+            min-height: 100%;
+            float: left;
+            object-fit: cover;
+        }
     }
 
     &__text {
@@ -75,6 +99,15 @@
             display: inline-block;
             transition: all .5s;
             line-height: 1;
+
+            @include respond(tab-port) {
+                top: 1rem;
+                right: 1.5rem;
+            }
+
+            @include respond(phone) {
+                font-size: 2rem;
+            }
         }
 
         &:hover {

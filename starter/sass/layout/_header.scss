@@ -5,12 +5,25 @@
             to right bottom,
             rgba($color-primary-light, 0.8), 
             rgba($color-primary-dark, 0.8)),
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg); //Here we use the small image as default
     background-size: cover;
     background-position: top;
     position: relative;
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    //RESPONSIVE IMAGE IN CSS
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+           only screen and (min-width: 125em) { // 192 dots per inch (apple retina screen, high res used as reference). 
+                                                // If ((resolution > 192dpi && Screen width > 600px) || Screen width > 2000px (when resolution is low)) 
+                                                // because we dont need an image higher than 1200px (600px * 2)
+        background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.8), 
+            rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg);
+    }
 
     @include respond(phone) {
         clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

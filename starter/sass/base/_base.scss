@@ -26,3 +26,8 @@ html {
 body {
     box-sizing: border-box;
 }
+
+::selection {   //Selected text style
+    background-color: $color-primary;
+    color: $color-white;
+}
